@@ -22,3 +22,13 @@ output "node_group_arns" {
   description = "ARNs of the EKS node groups"
   value       = [for ng in module.eks.eks_managed_node_groups : ng.node_group_arn]
 }
+
+output "eks_iam_role_arn" {
+  description = "IAM Role ARN for EKS Cluster"
+  value       = aws_iam_role.eks_role.arn
+}
+
+output "eks_iam_role_name" {
+  description = "IAM Role Name for EKS Cluster"
+  value       = aws_iam_role.eks_role.name
+}
